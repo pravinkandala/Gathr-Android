@@ -31,7 +31,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/hostNameTextView"
+        android:id="@+id/hostNameEditText"
         android:layout_below="@+id/titleEditText"
         android:layout_alignParentStart="true"
         android:hint="Host Name" />
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/startDetailsEditText"
-        android:layout_below="@+id/hostNameTextView"
+        android:layout_below="@+id/hostNameEditText"
         android:layout_alignParentEnd="true"
         android:hint="Start Date &amp; Time" />
 

@@ -90,6 +90,26 @@ public class EventRegistration extends Fragment {
             @Override
             public void onClick(View v)
             {
+                if(titleET.getText().toString().matches("")||hostNameET.getText().toString().matches("")||startDetailsET.getText().toString().matches("")||endDetailsET.getText().toString().matches("")||locationET.getText().toString().matches("")){
+                    Toast.makeText(getActivity(), "Fields can't be empty", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    eventObject.put("title", titleET.getText().toString());
+                    eventObject.put("hostname", hostNameET.getText().toString());
+                    eventObject.put("startDate", startDetailsET.getText().toString());
+
+                    eventObject.put("endDate", endDetailsET.getText().toString());
+
+                    getLatLongFromPlace(locationET.getText().toString().toLowerCase());
+                }
+            }
+        });
+
+        clearBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
                 titleET.setText("");
                 hostNameET.setText("");
                 startDetailsET.setText("");

@@ -119,16 +119,20 @@ public class EventRegistration extends Fragment {
         });
 
 
+        if(titleET.getText().toString().matches("")||hostNameET.getText().toString().matches("")||startDetailsET.getText().toString().matches("")||endDetailsET.getText().toString().matches("")||locationET.getText().toString().matches("")) {
+        }
+        else {
 
-        eventObject.saveInBackground(new SaveCallback() {
-            public void done(ParseException e) {
-                if (e == null) {
-                    Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getActivity(), "fail", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+             eventObject.saveInBackground(new SaveCallback() {
+                 public void done(ParseException e) {
+                     if (e == null) {
+                         Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
+                     } else {
+                         Toast.makeText(getActivity(), "fail", Toast.LENGTH_SHORT).show();
+                     }
+                 }
+             });
+         }
 
         return view;
 
@@ -149,7 +153,13 @@ public class EventRegistration extends Fragment {
                 Address location = address.get(0);
 
                 ParseGeoPoint point = new ParseGeoPoint(location.getLatitude(),location.getLongitude());
-                eventObject.put("Location",point);
+                if(locationET.getText().toString().matches("")){
+
+
+                }
+                else {
+                    eventObject.put("Location", point);
+                }
 
                // Toast.makeText(this,"something went into address",Toast.LENGTH_SHORT).show();
             }
@@ -240,8 +250,14 @@ public class EventRegistration extends Fragment {
                 double lng = Double.valueOf(lng_helper);
 
                 ParseGeoPoint point1 = new ParseGeoPoint(lat,lng);
-                eventObject.put("Location",point1);
 
+                if(locationET.getText().toString().matches("")){
+
+
+                }
+                else {
+                    eventObject.put("Location", point1);
+                }
 //                LatLng point = new LatLng(lat, lng);
 //                ParseGeoPoint point = new ParseGeoPoint(30.0, -20.0);
 //                ParseObject object = new ParseObject("PlaceObject");

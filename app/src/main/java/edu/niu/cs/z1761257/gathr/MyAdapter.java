@@ -24,8 +24,8 @@ public class MyAdapter extends FragmentPagerAdapter {
                 return eventRegistration;
 
             case 1:
-                DisplayEvents coffeeFragment = new DisplayEvents();
-                return coffeeFragment;
+                DisplayEvents displayEvents = new DisplayEvents();
+                return displayEvents;
 
 //            case 2:
 //                LunchFragment lunchFragment = new LunchFragment();

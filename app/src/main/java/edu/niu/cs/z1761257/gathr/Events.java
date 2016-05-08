@@ -1,12 +1,18 @@
 package edu.niu.cs.z1761257.gathr;
 
+import android.location.Geocoder;
+
+import com.parse.ParseGeoPoint;
+
 /**
  * Created by Pravin on 5/4/16.
  */
 public class Events {
 
 
-        private String title, hostname, startDate, endDate, location;
+        private String title, hostname, startDate, endDate;
+
+        private ParseGeoPoint geoPoint;
 
 
         public String getTitle() {
@@ -41,11 +47,19 @@ public class Events {
         this.endDate = endDate;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+
+    public ParseGeoPoint getGeoPoint() {
+        return geoPoint;
     }
 
-    public String getLocation() {
-        return location;
+    public void setGeoPoint(ParseGeoPoint geoPoint) {
+        this.geoPoint = geoPoint;
     }
+
+//    public String getLocation() {
+//        return location;
+//    }
 }

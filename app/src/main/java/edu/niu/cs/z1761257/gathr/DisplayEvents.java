@@ -2,6 +2,7 @@ package edu.niu.cs.z1761257.gathr;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.Parse;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -96,7 +98,10 @@ public class DisplayEvents extends Fragment {
                     obj.setTitle((String) country.get("title"));
                     obj.setHostname((String) country.get("hostname"));
                     obj.setStartDate((String) country.get("startDate"));
-                    obj.setEndDate((String)country.get("endDate"));
+                    obj.setEndDate((String) country.get("endDate"));
+
+                    obj.setGeoPoint((ParseGeoPoint) country.get("Location"));
+
                     eventList.add(obj);
                 }
             } catch (Exception e) {

@@ -16,6 +16,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.location.Address;
 
+import com.parse.ParseGeoPoint;
+
 public class EventAdapter extends BaseAdapter {
 
     // Declare Variables
@@ -56,7 +58,7 @@ public class EventAdapter extends BaseAdapter {
         return position;
     }
 
-    public View getView(final int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, final ViewGroup parent) {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
@@ -94,19 +96,32 @@ public class EventAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View view) {
-//                // Send single item click data to SingleItemView Class
-//                Intent intent = new Intent(mContext, SingleItemView.class);
-//                // Pass all data rank
-//                intent.putExtra("rank",
-//                        (worldpopulationlist.get(position).getRank()));
-//                // Pass all data country
-//                intent.putExtra("country",
-//                        (worldpopulationlist.get(position).getCountry()));
-//                // Pass all data population
-//                intent.putExtra("population",
-//                        (worldpopulationlist.get(position).getPopulation()));
-//                // Start SingleItemView Class
-//                mContext.startActivity(intent);
+                // Send single item click data to SingleItemView Class
+                Intent intent = new Intent(mContext, SingleEventView.class);
+                // Pass all title data
+                intent.putExtra("title",
+                        (eventList.get(position).getTitle()));
+
+                // Pass all location data
+
+                ParseGeoPoint parseGeoPoint = eventList.get(position).getGeoPoint();
+                Double lat = parseGeoPoint.getLatitude();
+                Double lng = parseGeoPoint.getLongitude();
+
+                intent.putExtra("lat",lat);
+                intent.putExtra("lng",lng);
+
+
+                // Pass all start data
+                intent.putExtra("start",
+                        (eventList.get(position).getStartDate()));
+                // Pass all host data
+                intent.putExtra("hostname",(eventList.get(position).getHostname()));
+                //Pass all end data
+                intent.putExtra("end",(eventList.get(position).getEndDate()));
+
+                // Start SingleItemView Class
+                mContext.startActivity(intent);
             }
         });
 

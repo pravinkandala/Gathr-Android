@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -53,11 +54,24 @@ public class EventRegistration extends Fragment {
 
     private Button saveBtn, clearBtn;
 
+    private static View vi;
+
 //    Context thiscontext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        if (vi != null) {
+            ViewGroup parent = (ViewGroup) vi.getParent();
+            if (parent != null)
+                parent.removeView(vi);
+        }
+        try {
+            vi = inflater.inflate(R.layout.activity_event_registration, container, false);
+        } catch (InflateException e) {
+        /* map is already there, just return view as it is */
+        }
 
         ParseApplication p = (ParseApplication)getActivity().getApplication();
 
@@ -69,18 +83,18 @@ public class EventRegistration extends Fragment {
 
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_event_registration, container, false);
+       // View view = inflater.inflate(R.layout.activity_event_registration, container, false);
 
 
         // Execute RemoteDataTask AsyncTask
 
-        titleET = (EditText) view.findViewById(R.id.titleEditText);
-        hostNameET = (EditText) view.findViewById(R.id.hostNameEditText);
-        startDetailsET = (EditText) view.findViewById(R.id.startDetailsEditText);
-        endDetailsET = (EditText) view.findViewById(R.id.endDetailsEditText);
-        locationET = (EditText) view.findViewById(R.id.locationEditText);
-        saveBtn = (Button) view.findViewById(R.id.saveButton);
-        clearBtn = (Button) view.findViewById(R.id.clearButton);
+        titleET = (EditText) vi.findViewById(R.id.titleEditText);
+        hostNameET = (EditText) vi.findViewById(R.id.hostNameEditText);
+        startDetailsET = (EditText) vi.findViewById(R.id.startDetailsEditText);
+        endDetailsET = (EditText) vi.findViewById(R.id.endDetailsEditText);
+        locationET = (EditText) vi.findViewById(R.id.locationEditText);
+        saveBtn = (Button) vi.findViewById(R.id.saveButton);
+        clearBtn = (Button) vi.findViewById(R.id.clearButton);
 
 //        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
 //        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
@@ -134,7 +148,7 @@ public class EventRegistration extends Fragment {
              });
          }
 
-        return view;
+        return vi;
 
     }//end of onCreate
 

@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.InflateException;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,6 +34,8 @@ public class DisplayEvents extends Fragment {
     ProgressDialog mProgressDialog;
     EventAdapter adapter;
     private List<Events> eventList = null;
+
+    private View v;
 //    Context thiscontext;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,13 +43,24 @@ public class DisplayEvents extends Fragment {
 
 
 
+        if (v != null) {
+            ViewGroup parent = (ViewGroup) v.getParent();
+            if (parent != null)
+                parent.removeView(v);
+        }
+        try {
+            v = inflater.inflate(R.layout.activity_display_events, container, false);
+        } catch (InflateException e) {
+        /* map is already there, just return view as it is */
+        }
+
         ParseApplication p = (ParseApplication)getActivity().getApplication();
 //        thiscontext = container.getContext();
 
         // Inflate the layout for this fragment
         new RemoteDataTask().execute();
 
-        return inflater.inflate(R.layout.activity_display_events, container, false);
+        return v;
 //        Parse.enableLocalDatastore(thiscontext);
 //        Parse.initialize(thiscontext, getString(R.string.YOUR_APPLICATION_ID), getString(R.string.YOUR_CLIENT_KEY));
 

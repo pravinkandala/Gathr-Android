@@ -1,27 +1,22 @@
 package edu.niu.cs.z1761257.gathr;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.location.Location;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.InflateException;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 
 public class DisplayEvents extends Fragment {
@@ -69,16 +64,11 @@ public class DisplayEvents extends Fragment {
 
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        // Get the view from listview_main.xml
-//        setContentView(R.layout.activity_display_events);
 
-
-
-//
-//    }
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     // RemoteDataTask AsyncTask
     private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
@@ -88,16 +78,22 @@ public class DisplayEvents extends Fragment {
             // Create a progressdialog
             mProgressDialog = new ProgressDialog(getActivity());
             // Set progressdialog title
-            mProgressDialog.setTitle("List");
+            mProgressDialog.setTitle("Events");
             // Set progressdialog message
-            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setMessage("Updating...");
             mProgressDialog.setIndeterminate(false);
             // Show progressdialog
             mProgressDialog.show();
         }
 
+
         @Override
         protected Void doInBackground(Void... params) {
+            callfunction();
+            return null;
+        }
+
+        public void callfunction(){
             // Create the array
             eventList = new ArrayList<Events>();
             try {
@@ -122,9 +118,7 @@ public class DisplayEvents extends Fragment {
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
-            return null;
         }
-
         @Override
         protected void onPostExecute(Void result) {
             // Locate the listview in listview_main.xml

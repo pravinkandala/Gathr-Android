@@ -2,18 +2,18 @@ package edu.niu.cs.z1761257.gathr;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.support.v4.app.ActivityCompat;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.android.gms.maps.*;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.parse.ParseGeoPoint;
-import com.google.android.gms.maps.model.CameraPosition;
 
 public class SingleEventView extends AppCompatActivity {
 
@@ -22,7 +22,6 @@ public class SingleEventView extends AppCompatActivity {
            hostname,
            start,
            end;
-
 
     GoogleMap map;
 
@@ -43,12 +42,13 @@ public class SingleEventView extends AppCompatActivity {
         end = i.getStringExtra("end");
         //Get the result of location
 
+        //get latitude and longitude from parse - geopoint
         Double lat = i.getExtras().getDouble("lat");
         Double lng = i.getExtras().getDouble("lng");
 
 
 
-//       Toast.makeText(SingleEventView.this, "location: "+ lat, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(SingleEventView.this, "location: "+ lat, Toast.LENGTH_SHORT).show();
 
         // Locate the TextViews in singleitemview.xml
         TextView titleTV = (TextView) findViewById(R.id.titleTextView);
@@ -66,6 +66,8 @@ public class SingleEventView extends AppCompatActivity {
         }
 
         try{
+
+            //map settings
             map = ((MapFragment)getFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
             MarkerOptions k = new MarkerOptions()
                     .position(new LatLng(lat,lng))
@@ -87,7 +89,13 @@ public class SingleEventView extends AppCompatActivity {
 
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }//end of try - catch
 
-    }
-}
+    }//end of onCreate
+
+    //goBack button
+    public void goBack(View view){
+        finish();
+    }//end of goBack
+
+}//end of SingleEventView

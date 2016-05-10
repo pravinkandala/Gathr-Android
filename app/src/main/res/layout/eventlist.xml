@@ -13,35 +13,28 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Title"
-        android:id="@+id/titleTextView" />
+        android:id="@+id/titleTextView"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        android:typeface="monospace" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Hostname"
-        android:id="@+id/hostnameTextView" />
+        android:id="@+id/hostnameTextView"
+        android:textSize="19dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Start :"
-        android:id="@+id/startTextView" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="End:"
-        android:id="@+id/endTextView" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Location:"
-        android:id="@+id/locationTextView" />
+        android:id="@+id/startTextView"
+        android:textAlignment="textEnd"
+        android:textStyle="italic"
+        android:textSize="16dp" />
 
 </LinearLayout>
 

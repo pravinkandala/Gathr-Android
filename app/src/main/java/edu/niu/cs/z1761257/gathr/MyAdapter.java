@@ -30,10 +30,6 @@ public class MyAdapter extends FragmentPagerAdapter {
             case 2:
                 mapEvents mapEvents = new mapEvents();
                 return mapEvents;
-//
-//            case 3:
-//                DinnerFragment dinnerFragment = new DinnerFragment();
-//                return dinnerFragment;
 
             default: return null;
         }

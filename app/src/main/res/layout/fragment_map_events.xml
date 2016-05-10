@@ -6,10 +6,21 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <fragment
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/fragment"
-        android:layout_marginTop="45dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show all events on map"
+        android:id="@+id/show"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" G a t h r "
+        android:id="@+id/textView3"
+        android:layout_gravity="center"
+        android:typeface="monospace"
+        android:textSize="60dp" />
 </FrameLayout>

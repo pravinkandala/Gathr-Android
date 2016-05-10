@@ -3,16 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.niu.cs.z1761257.gathr.DisplayEvents"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-<ListView
+
+    <ListView
     android:id="@+id/listview12"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="100dp"
-    android:smoothScrollbar="true"
-    android:scrollIndicators="right" />
+        android:smoothScrollbar="true"
+    android:scrollIndicators="right"
+        android:focusable="false"
+        android:footerDividersEnabled="false"
+        android:layout_marginTop="47dp" />
 
 </LinearLayout>

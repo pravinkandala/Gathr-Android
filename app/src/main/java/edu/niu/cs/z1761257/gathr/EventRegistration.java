@@ -1,45 +1,38 @@
 package edu.niu.cs.z1761257.gathr;
 
-import android.app.Activity;
-import android.content.Context;
+/**
+ * Created by Pravin on 5/7/16.
+ * Project: Gathr
+ */
+
+
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.InflateException;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.location.Geocoder;
-import android.support.v4.app.Fragment;
 
-import com.parse.FindCallback;
-import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.SaveCallback;
-import com.parse.ParseException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+
 
 public class EventRegistration extends Fragment {
 
@@ -47,16 +40,18 @@ public class EventRegistration extends Fragment {
     ParseObject eventObject = new ParseObject("Events");
 
     private EditText titleET,
-            hostNameET,
-            startDetailsET,
-            endDetailsET,
-            locationET;
+                     hostNameET,
+                     startDetailsET,
+                     endDetailsET,
+                     locationET;
 
     private Button saveBtn, clearBtn;
 
     private static View vi;
 
-//    Context thiscontext;
+    private Boolean locState = false;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,21 +64,12 @@ public class EventRegistration extends Fragment {
         }
         try {
             vi = inflater.inflate(R.layout.activity_event_registration, container, false);
+
         } catch (InflateException e) {
         /* map is already there, just return view as it is */
         }
 
         ParseApplication p = (ParseApplication)getActivity().getApplication();
-
-//        thiscontext = container.getContext();
-
-
-//        Parse.enableLocalDatastore(thiscontext);
-//        Parse.initialize(thiscontext, getString(R.string.YOUR_APPLICATION_ID), getString(R.string.YOUR_CLIENT_KEY));
-
-
-        // Inflate the layout for this fragment
-       // View view = inflater.inflate(R.layout.activity_event_registration, container, false);
 
 
         // Execute RemoteDataTask AsyncTask
@@ -96,8 +82,7 @@ public class EventRegistration extends Fragment {
         saveBtn = (Button) vi.findViewById(R.id.saveButton);
         clearBtn = (Button) vi.findViewById(R.id.clearButton);
 
-//        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-//        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+        //intent button to send single event details
 
         saveBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -115,10 +100,26 @@ public class EventRegistration extends Fragment {
                     eventObject.put("endDate", endDetailsET.getText().toString());
 
                     getLatLongFromPlace(locationET.getText().toString().toLowerCase());
+
+                    if(locState == false){
+
+                    }else {
+                        eventObject.saveInBackground(new SaveCallback() {
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getActivity(), "fail", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                    }
                 }
             }
         });
 
+        //clear button
         clearBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -129,30 +130,17 @@ public class EventRegistration extends Fragment {
                 startDetailsET.setText("");
                 endDetailsET.setText("");
                 locationET.setText("");
+                locState = false;
             }
         });
-
-
-        if(titleET.getText().toString().matches("")||hostNameET.getText().toString().matches("")||startDetailsET.getText().toString().matches("")||endDetailsET.getText().toString().matches("")||locationET.getText().toString().matches("")) {
-        }
-        else {
-
-             eventObject.saveInBackground(new SaveCallback() {
-                 public void done(ParseException e) {
-                     if (e == null) {
-                         Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
-                     } else {
-                         Toast.makeText(getActivity(), "fail", Toast.LENGTH_SHORT).show();
-                     }
-                 }
-             });
-         }
 
         return vi;
 
     }//end of onCreate
 
 
+    //get latitude and longitude from address
+    //The following code snippet is taken from stackoverflow -> http://stackoverflow.com/a/22909966/2078880
 
     public void getLatLongFromPlace(String place) {
         try {
@@ -173,6 +161,7 @@ public class EventRegistration extends Fragment {
                 }
                 else {
                     eventObject.put("Location", point);
+                    locState = true;
                 }
 
                // Toast.makeText(this,"something went into address",Toast.LENGTH_SHORT).show();
@@ -188,8 +177,8 @@ public class EventRegistration extends Fragment {
 
     }
 
+    //Sometimes happens that device gives location = null
 
-//Sometimes happens that device gives location = null
 
     public class fetchLatLongFromService extends
             AsyncTask<Void, Void, StringBuilder> {
@@ -271,6 +260,7 @@ public class EventRegistration extends Fragment {
                 }
                 else {
                     eventObject.put("Location", point1);
+                    locState = true;
                 }
 //                LatLng point = new LatLng(lat, lng);
 //                ParseGeoPoint point = new ParseGeoPoint(30.0, -20.0);
@@ -285,10 +275,10 @@ public class EventRegistration extends Fragment {
                 e.printStackTrace();
 
             }
-        }
-    }
+        }//end of onPost
+    }//end of fetchLatLongFromService
 
 
-}
+}//end of EventRegistration
 
 

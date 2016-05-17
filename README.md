@@ -5,7 +5,7 @@ Find things to do, wherever you go!
 Gathr is an Android app written in Java and Parse.com for storage.  
 
 ## Screenshots   
-![](ReadmeAssets/1.png =250x)   
+![](ReadmeAssets/1.png=250x)   
 ![](ReadmeAssets/2.png)   
 ![](ReadmeAssets/3.png) 
 ![](ReadmeAssets/4.png)

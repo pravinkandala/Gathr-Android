@@ -51,19 +51,14 @@ public class mapEvents extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateDetail();
+                Intent intent = new Intent(getContext(),ShowMaps.class);
+                startActivity(intent);
             }
         });
 
+
         // Inflate the layout for this fragment
         return vi;
-    }
-
-    //intent function
-    public void updateDetail()
-    {
-        Intent intent = new Intent(getActivity(), ShowMaps.class);
-        startActivity(intent);
     }
 
 

@@ -11,4 +11,6 @@ IF YOU FACE ANY PROBLEM PLEASE CONTACT THE DEVELOPER AT  pravin.kandala07@gmail.
 THE APP DOES'NT VIOLATE THE PRIVACY OF THE USER .
 
 
-Trademark @ Pravin Kandala
+Trademark @ [Pravin Kandala][pravin-github] 
+
+[pravin-github]: http://github.com/pravinkandala

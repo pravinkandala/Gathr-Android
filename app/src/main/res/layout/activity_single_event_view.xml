@@ -10,7 +10,7 @@
     android:screenOrientation="portrait"
     tools:context="edu.niu.cs.z1761257.gathr.SingleEventView">
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +26,8 @@
             android:id="@+id/titleTextView"
             android:textSize="21dp"
             android:textStyle="bold"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:layout_alignParentTop="true"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -35,7 +36,8 @@
             android:text="Hostname"
             android:id="@+id/hostnameTextView"
             android:layout_marginTop="5dp"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:layout_below="@+id/titleTextView"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -44,7 +46,8 @@
             android:text="Start"
             android:id="@+id/startTextView"
             android:layout_marginTop="5dp"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:layout_below="@+id/hostnameTextView"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -53,20 +56,25 @@
             android:text="End"
             android:id="@+id/endTextView"
             android:layout_marginTop="5dp"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:layout_below="@+id/startTextView"/>
 
         <fragment
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:name="com.google.android.gms.maps.MapFragment"
             android:id="@+id/mapFragment"
-            android:layout_marginTop="7dp" />
+            android:layout_marginTop="7dp"
+            android:layout_below="@+id/endTextView"
+            android:layout_above="@+id/back_button"
+            />
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:text="back"
-            android:id="@+id/button2"
+            android:id="@+id/back_button"
+            android:layout_alignParentBottom="true"
             android:onClick="goBack" />
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

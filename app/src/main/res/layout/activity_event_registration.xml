@@ -1,10 +1,17 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:windowSoftInputMode="stateHidden|adjustResize"
     tools:context="edu.niu.cs.z1761257.gathr.EventRegistration">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/form_layout">
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
@@ -25,17 +32,15 @@
         android:layout_alignParentStart="true"
         android:hint="Title"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/hostNameEditText"
-        android:layout_alignParentStart="true"
         android:hint="Host Name"
         android:layout_below="@+id/titleEditText"
-        android:layout_centerHorizontal="true" />
+         />
 
     <EditText
         android:layout_width="match_parent"
@@ -44,42 +49,51 @@
         android:layout_alignParentEnd="true"
         android:hint="Start Date &amp; Time"
         android:layout_below="@+id/hostNameEditText"
-        android:layout_centerHorizontal="true" />
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/endDetailsEditText"
-        android:layout_alignParentStart="true"
         android:hint="End Date &amp; Time"
         android:layout_below="@+id/startDetailsEditText"
-        android:layout_centerHorizontal="true" />
+         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
-        android:layout_alignParentStart="true"
         android:hint="Location"
         android:layout_below="@+id/endDetailsEditText"
-        android:layout_centerHorizontal="true" />
+        />
 
-    <Button
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:id="@+id/saveButton"
-        android:onClick="saveEvent"
-        android:layout_above="@+id/clearButton"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/form_layout"
+        >
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clear"
-        android:id="@+id/clearButton"
-        android:onClick="clearEvent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:id="@+id/saveButton"
+                android:onClick="saveEvent"
+                android:layout_alignParentLeft="true"
+               />
 
-</RelativeLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:id="@+id/clearButton"
+                android:onClick="clearEvent"
+                android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

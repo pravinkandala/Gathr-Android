@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import edu.niu.cs.z1761257.gathr.Activity.ShowMaps;
+
 
 /**
  * A simple {@link Fragment} subclass.

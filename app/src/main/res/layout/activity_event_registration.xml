@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:windowSoftInputMode="stateHidden|adjustResize"
-    tools:context="edu.niu.cs.z1761257.gathr.EventRegistration">
+    tools:context="edu.niu.cs.z1761257.gathr.Activity.EventRegistration">
 
     <RelativeLayout
         android:layout_width="match_parent"

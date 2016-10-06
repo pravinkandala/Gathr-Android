@@ -18,6 +18,9 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.niu.cs.z1761257.gathr.Adapter.EventAdapter;
+import edu.niu.cs.z1761257.gathr.Model.Events;
+
 
 public class DisplayEvents extends Fragment {
 

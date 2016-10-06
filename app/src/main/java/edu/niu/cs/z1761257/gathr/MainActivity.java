@@ -5,6 +5,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import edu.niu.cs.z1761257.gathr.Adapter.MyAdapter;
+
 /**
  * Created by Pravin on 5/4/16.
  * Project: Gathr

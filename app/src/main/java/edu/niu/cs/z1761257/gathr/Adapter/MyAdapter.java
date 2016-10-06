@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import edu.niu.cs.z1761257.gathr.DisplayEvents;
-import edu.niu.cs.z1761257.gathr.Activity.EventRegistration;
-import edu.niu.cs.z1761257.gathr.mapEvents;
+import edu.niu.cs.z1761257.gathr.Tabs.DisplayEvents;
+import edu.niu.cs.z1761257.gathr.Tabs.EventRegistration;
+import edu.niu.cs.z1761257.gathr.Tabs.mapEvents;
 
 /**
  * Created by Pravin on 5/7/16.

@@ -1,4 +1,4 @@
-package edu.niu.cs.z1761257.gathr;
+package edu.niu.cs.z1761257.gathr.Tabs;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -20,6 +20,8 @@ import java.util.List;
 
 import edu.niu.cs.z1761257.gathr.Adapter.EventAdapter;
 import edu.niu.cs.z1761257.gathr.Model.Events;
+import edu.niu.cs.z1761257.gathr.ParseApplication;
+import edu.niu.cs.z1761257.gathr.R;
 
 
 public class DisplayEvents extends Fragment {

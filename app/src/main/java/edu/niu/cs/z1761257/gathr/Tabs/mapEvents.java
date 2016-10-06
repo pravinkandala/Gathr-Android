@@ -1,4 +1,4 @@
-package edu.niu.cs.z1761257.gathr;
+package edu.niu.cs.z1761257.gathr.Tabs;
 /**
  * Created by Pravin on 5/7/16.
  * Project: Gathr
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import edu.niu.cs.z1761257.gathr.Activity.ShowMaps;
+import edu.niu.cs.z1761257.gathr.R;
 
 
 /**

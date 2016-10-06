@@ -1,4 +1,4 @@
-package edu.niu.cs.z1761257.gathr.Activity;
+package edu.niu.cs.z1761257.gathr.Tabs;
 
 /**
  * Created by Pravin on 5/7/16.

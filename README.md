@@ -1,16 +1,14 @@
 # Gathr
 
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/500px-Get_it_on_Google_play.svg.png" style="float: left; padding-right: 10px;" height="70">](https://play.google.com/store/apps/details?id=edu.niu.cs.z1761257.gathr)
+
+
 Find things to do, wherever you go!  
 
 Gathr is an Android app written in Java and Parse.com for storage.  
 
 ## Screenshots   
-![](ReadmeAssets/1.png)   
-![](ReadmeAssets/2.png)   
-![](ReadmeAssets/3.png) 
-![](ReadmeAssets/4.png)
-![](ReadmeAssets/5.png)
-![](ReadmeAssets/6.png)
+<img src="https://raw.github.com/pravinkandala/gathr-1.0/master/ReadmeAssets/1.png" width="180" />  <img src="https://raw.github.com/pravinkandala/gathr-1.0/master/ReadmeAssets/2.png" width="180" />  <img src="https://raw.github.com/pravinkandala/gathr-1.0/master/ReadmeAssets/3.png" width="180" />  <img src="https://raw.github.com/pravinkandala/gathr-1.0/master/ReadmeAssets/4.png" width="180" />  <img src="https://raw.github.com/pravinkandala/gathr-1.0/master/ReadmeAssets/5.png" width="180" />  <img src="https://raw.github.com/pravinkandala/gathr-1.0/master/ReadmeAssets/6.png" width="180" /> 
 
 
 ## About Gathr   

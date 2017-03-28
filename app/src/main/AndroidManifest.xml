@@ -42,8 +42,8 @@
         <!--<meta-data android:name="com.google.android.gms.version"-->
             <!--android:value="@integer/google_play_services_version" />-->
 
-        <activity android:name=".SingleEventView"></activity>
-        <activity android:name=".ShowMaps"></activity>
+        <activity android:name=".Activity.SingleEventView"></activity>
+        <activity android:name=".Activity.ShowMaps"></activity>
     </application>
 
 </manifest>

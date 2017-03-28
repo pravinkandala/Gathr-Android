@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="edu.niu.cs.z1761257.gathr.DisplayEvents"
+    tools:context="edu.niu.cs.z1761257.gathr.Tabs.DisplayEvents"
     android:orientation="vertical"
     android:showDividers="end">
 
